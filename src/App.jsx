@@ -1,28 +1,39 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <footer className="relative z-10 border-t border-white/10 py-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4 text-center">
+        <p className="text-white/70">© {new Date().getFullYear()} Flames AI Studio. All rights reserved.</p>
+        <div className="text-xs text-white/50">Built with love, LLMs and a touch of glitter.</div>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#0A0A0B] [--grid:rgba(255,255,255,0.06)]">
+      {/* Subtle glossy grid background */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), radial-gradient(circle at 20% -10%, rgba(168,85,247,0.25), transparent 30%), radial-gradient(circle at 80% -10%, rgba(59,130,246,0.25), transparent 30%)",
+        }}
+      />
+
+      <Navbar />
+      <main className="relative z-10">
+        <Hero />
+        <Features />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
